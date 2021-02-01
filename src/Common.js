@@ -5,19 +5,19 @@ export default function Common() {
     <div>
       <p>
         Commonly Searched: &nbsp;&nbsp;
-        <a href="" id="paris-text">
+        <a href="#0">
           Paris
         </a>{" "}
         &nbsp;&nbsp;
-        <a href="" id="amsterdam-text">
+        <a href="#0">
           Amsterdam
         </a>{" "}
         &nbsp;&nbsp;
-        <a href="" id="newyork-text">
+        <a href="#0">
           New York
         </a>{" "}
         &nbsp;&nbsp;
-        <a href="" id="tokyo-text">
+        <a href="#0">
           Tokyo
         </a>
       </p>
