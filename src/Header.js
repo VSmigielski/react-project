@@ -1,6 +1,6 @@
 import React from "react";
-import "./Header.css";
+import './Header.css';
 
 export default function Header() {
-  return <h1>Weather Forecast</h1>;
+  return <h1 className="Header">Weather Forecast</h1>;
 }

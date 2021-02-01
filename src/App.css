@@ -1,5 +1,7 @@
-body {
+.App {
   font-family: "Abel", sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .active {
   color: black;

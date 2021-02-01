@@ -1,9 +1,9 @@
 import React from "react";
-import "./Card.css";
+import './WeatherForecast.css';
 
 export default function Card() {
   return (
-    <div>
+    <div className="Card">
       <div className="card">
         <div className="card-body">
           <div className="row weather-forecast" id="forecast"></div>
