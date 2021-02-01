@@ -17,9 +17,9 @@ export default function Column() {
       <div className="row">
         <div className="col-6">
           <ul>
-            <li id="city-text">{weatherData.city}</li>
-            <li id="description">{weatherData.description}</li>
-            <li id="day-month-text">{weatherData.day}</li>
+            <li>{weatherData.city}</li>
+            <li>{weatherData.description}</li>
+            <li>{weatherData.day}</li>
             <li>
               <img
                 src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
@@ -28,11 +28,11 @@ export default function Column() {
                 className="float-left"
               />
               <span id="temperature-text">{weatherData.temperature}</span>
-              <a href="" id="celsius-link" className="active">
+              <a href="" className="active">
                 °C
               </a>
               &nbsp;|&nbsp;
-              <a href="" id="fahrenheit-link">
+              <a href="">
                 °F
               </a>
             </li>
@@ -41,14 +41,13 @@ export default function Column() {
         <div className="col-6">
           <ul>
             <li id="day-time">
-              Last updated:&nbsp;
-              <span id="day-time-text">{weatherData.date}</span>
+              Last updated:&nbsp; {weatherData.date}
             </li>
             <li>
-              Humidity: <span id="humidity">{weatherData.humidity}</span>%
+              Humidity: {weatherData.humidity}%
             </li>
             <li>
-              Wind: <span id="wind">{weatherData.wind}</span> km/h
+              Wind: {weatherData.wind} km/h
             </li>
           </ul>
         </div>
