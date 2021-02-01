@@ -6,7 +6,7 @@ export default function Footer() {
       <p>
         <a
           href="https://github.com/VSmigielski/SheCodesWorkshop2Project"
-          target="_blank"
+          target="_blank" rel="noreferrer"
           id="github"
         >
           Open-source code

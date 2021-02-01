@@ -38,10 +38,20 @@ export default function SearchEngine() {
   }
 
   let form = (
-    <form onSubmit={handleSubmit}>
-      <input type="search" placeholder="Enter a city" onChange={updateCity} />
-      <input type="submit" value="Search" />
-    </form>
+    <div onSubmit={handleSubmit}>
+      <input type="search" placeholder="Enter a city" onChange={updateCity} autofocus="on"
+        auto-complete="off" />
+      <button type="submit" id="search" className="btn btn-success">
+        Search
+      </button>
+      <button
+        type="submit"
+        id="current-location-button"
+        className="btn btn-primary"
+      >
+        Current
+      </button>
+      </div>
   );
   let ul = (
     <ul>
