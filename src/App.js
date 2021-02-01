@@ -6,7 +6,6 @@ function App() {
     <div className="App">
       <header className="App-header">
       <h1>Weather Application</h1>
-      Testing
       <SearchEngine />
       </header>
     </div>
