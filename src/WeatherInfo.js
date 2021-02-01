@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate.js";
 import WeatherIcon from "./WeatherIcon.js";
+import WeatherTemperature from "./WeatherTemperature.js";
 
 export default function WeatherInfo(props) {
     function FormatMonthDay(){
@@ -22,15 +23,7 @@ export default function WeatherInfo(props) {
             <li>
               <div className="clearfix">
               <WeatherIcon code={props.data.icon} alt={props.data.description}/>   
-              <span className="temperature">{Math.round(props.data.temperature)}</span>
-              <span className="unit"><a href="#0" className="active">
-                °C
-              </a>
-              &nbsp;|&nbsp;
-              <a href="#0">
-                °F
-              </a>
-              </span>
+              <WeatherTemperature celsius={props.data.temperature}/>
               </div>
             </li>
           </ul>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Common(props) {
-  const [weatherData, setWeatherData] = useState({ ready: false });
+   const [weatherData, setWeatherData] = useState({ ready: false });
   
   function handleResponse(response) {
     setWeatherData({
@@ -52,13 +52,13 @@ export default function Common(props) {
     ${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
-  
+
   return (
     <div>
       <p>
         Commonly Searched: &nbsp;&nbsp;
         <a href="#0" onClick={updateParis}>
-          Paris
+          Paris {weatherData}
         </a>{" "}
         &nbsp;&nbsp;
         <a href="#0" onClick={updateAmsterdam}>

@@ -3,10 +3,3 @@
   max-width: 1000px;
   margin: 0 auto;
 }
-.active {
-  color: black;
-  cursor: default;
-}
-.active:hover {
-  text-decoration: none;
-}

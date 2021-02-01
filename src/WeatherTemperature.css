@@ -1,0 +1,8 @@
+.WeatherTemperature .active {
+    color: black;
+    cursor: default;
+  }
+.WeatherTemperature .active:hover {
+    text-decoration: none;
+  }
+  
