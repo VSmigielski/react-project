@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Common from "./Common.js";
 import './SearchEngine.css';
 import WeatherInfo from "./WeatherInfo.js";
 
@@ -51,6 +50,42 @@ export default function SearchEngine(props) {
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
 
+  function updateParis(event) {
+    event.preventDefault();
+    let city = "Paris";
+    let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
+    ${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+  
+  function updateAmsterdam(event) {
+    event.preventDefault();
+    let city = "Amsterdam";
+    let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
+    ${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+  
+  function updateNewYork(event) {
+    event.preventDefault();
+    let city = "New York";
+    let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
+    ${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+  
+  function updateTokyo(event) {
+    event.preventDefault();
+    let city = "Tokyo";
+    let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
+    ${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   let form = (
       <form onSubmit={handleSubmit}>
       <input type="search" placeholder="Enter a city" autofocus="on" onChange={handleCityChange}
@@ -64,7 +99,25 @@ export default function SearchEngine(props) {
     return (
       <div className="SearchEngine">
         {form}
-        <Common />
+        <p>
+        Commonly Searched: &nbsp;&nbsp;
+        <a href="#0" onClick={updateParis}>
+          Paris 
+        </a>{" "}
+        &nbsp;&nbsp;
+        <a href="#0" onClick={updateAmsterdam}>
+          Amsterdam
+        </a>{" "}
+        &nbsp;&nbsp;
+        <a href="#0" onClick={updateNewYork}>
+          New York
+        </a>{" "}
+        &nbsp;&nbsp;
+        <a href="#0" onClick={updateTokyo}>
+          Tokyo
+        </a>
+      </p>
+      <br />
         <h2>
         <WeatherInfo data={weatherData}/>
         </h2>
@@ -75,7 +128,25 @@ export default function SearchEngine(props) {
     return (
       <div className="SearchEngine">
         {form}
-      <Common />
+        <p>
+        Commonly Searched: &nbsp;&nbsp;
+        <a href="#0" onClick={updateParis}>
+          Paris 
+        </a>{" "}
+        &nbsp;&nbsp;
+        <a href="#0" onClick={updateAmsterdam}>
+          Amsterdam
+        </a>{" "}
+        &nbsp;&nbsp;
+        <a href="#0" onClick={updateNewYork}>
+          New York
+        </a>{" "}
+        &nbsp;&nbsp;
+        <a href="#0" onClick={updateTokyo}>
+          Tokyo
+        </a>
+      </p>
+      <br />
       <h2>
       Loading...
       </h2>
