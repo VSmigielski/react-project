@@ -1,13 +1,14 @@
 import './App.css';
-import SearchEngine from "./SearchEngine";
+import Header from "./Header";
+import Form from "./Form";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <h1>Weather Application</h1>
-      <SearchEngine />
-      </header>
+      <div className="container">
+        <Header />
+        <Form />
+      </div>
     </div>
   );
 }
