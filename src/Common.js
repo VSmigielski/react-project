@@ -58,7 +58,7 @@ export default function Common(props) {
       <p>
         Commonly Searched: &nbsp;&nbsp;
         <a href="#0" onClick={updateParis}>
-          Paris {weatherData}
+          Paris 
         </a>{" "}
         &nbsp;&nbsp;
         <a href="#0" onClick={updateAmsterdam}>
@@ -72,6 +72,7 @@ export default function Common(props) {
         <a href="#0" onClick={updateTokyo}>
           Tokyo
         </a>
+        {weatherData.city}
       </p>
       <br />
     </div>
