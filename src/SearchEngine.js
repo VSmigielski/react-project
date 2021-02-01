@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Common from "./Common.js";
 import './SearchEngine.css';
-import FormattedDate from "./FormattedDate.js";
-
+import WeatherInfo from "./WeatherInfo.js";
 
 export default function SearchEngine(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -22,16 +21,6 @@ export default function SearchEngine(props) {
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    search();
-  }
-
-
-  function updateCity(event) {
-    setCity(event.target.value);
-  }
-
   function search() {
     const apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
@@ -39,95 +28,37 @@ export default function SearchEngine(props) {
     axios.get(apiUrl).then(handleResponse);
   }
 
-  function FormatMonthDay(){
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
 
-    let newDate = new Date()
-    let date = newDate.getDate();
-    let month = newDate.getMonth() + 1;
-    
-    return `${date}/${month}`
-    }
- // function searchLocation(position) {
- //   let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
- //   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
- //     position.coords.latitude
- //   }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
- // 
- //   axios.get(apiUrl).then(showTemperature);
- // }
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
 
- // function getCurrentLocation(event) {
- //   event.preventDefault();
-  //  navigator.geolocation.getCurrentPosition(searchLocation);
- // }
+  function searchLocation(position) {
+    let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
+      position.coords.latitude
+    }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  
+    axios.get(apiUrl).then(handleResponse);
+  }
 
- // function showTemperature(response) {
- //   setNewCity(response.data.name);
- //   setTemperature(Math.round(response.data.main.temp));
-  //  setDescription(response.data.weather[0].description);
-  //  setHumidity(response.data.main.humidity);
-  //  setWind(Math.round(response.data.wind.speed));
- //   setIcon(
- //     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
- //   );
- // }
+  function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchLocation);
+  }
 
   let form = (
-      <div onSubmit={handleSubmit}>
-      <input type="search" placeholder="Enter a city" autofocus="on" onChange={updateCity}
+      <form onSubmit={handleSubmit}>
+      <input type="search" placeholder="Enter a city" autofocus="on" onChange={handleCityChange}
         auto-complete="off" />
       <input type="submit" value="Search" className="btn btn-success"/>
-    </div>
+      <input type="submit" value="Current" className="btn btn-primary" onClick={getCurrentLocation}/>
+      </form>
   );
-
-  let ul = (
-    <div>
-      <div className="row">
-        <div className="col-6">
-          <ul>
-            <li>{weatherData.city}</li>
-            <li>{weatherData.description}</li>
-            <li>{FormatMonthDay()}</li>
-            <li>
-              <div className="clearfix">
-              <img
-                src={weatherData.icon}
-                alt={weatherData.description}
- 
-              />
-              <span className="temperature">{Math.round(weatherData.temperature)}</span>
-              <span className="unit"><a href="#0" className="active">
-                °C
-              </a>
-              &nbsp;|&nbsp;
-              <a href="#0">
-                °F
-              </a>
-              </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div className="col-6">
-          <ul>
-            <li>
-              Last updated:&nbsp; <FormattedDate date={weatherData.date}/>
-            </li>
-            <li>
-              Humidity: {weatherData.humidity}%
-            </li>
-            <li>
-              Wind: {Math.round(weatherData.wind)} km/h
-            </li>
-          </ul>
-        </div>
-      </div>
-      <br />
-    </div>
-  );
-
-  
-  
 
   if (weatherData.ready) {
     return (
@@ -135,7 +66,7 @@ export default function SearchEngine(props) {
         {form}
         <Common />
         <h2>
-        {ul}
+        <WeatherInfo data={weatherData}/>
         </h2>
       </div>
     );
@@ -143,7 +74,7 @@ export default function SearchEngine(props) {
     search();
     return (
       <div className="SearchEngine">
-      {form}
+        {form}
       <Common />
       <h2>
       Loading...

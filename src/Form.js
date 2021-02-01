@@ -5,10 +5,10 @@ import Footer from "./Footer.js";
 
 export default function Form() {
   return (
-    <form id="weather-form">
+    <div className="Form">
       <SearchEngine defaultCity="New York" />
       <Card />
       <Footer />
-    </form>
+    </div>
   );
 }
