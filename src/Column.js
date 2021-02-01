@@ -31,7 +31,7 @@ export default function Column() {
               <a href="#0" className="active">
                 °C
               </a>
-              <p>&nbsp;|&nbsp;</p>
+              &nbsp;|&nbsp;
               <a href="#0">
                 °F
               </a>
