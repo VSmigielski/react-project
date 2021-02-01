@@ -28,11 +28,11 @@ export default function Column() {
                 className="float-left"
               />
               <span id="temperature-text">{weatherData.temperature}</span>
-              <a href="" className="active">
+              <a href="#" className="active">
                 °C
               </a>
               &nbsp;|&nbsp;
-              <a href="">
+              <a href="#">
                 °F
               </a>
             </li>
