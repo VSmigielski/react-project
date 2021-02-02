@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './SearchEngine.css';
-import WeatherInfo from "./WeatherInfo.js";
-import WeatherForecast from "./WeatherForecast.js";
+import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function SearchEngine(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });

@@ -1,6 +1,6 @@
 import React from "react";
-import SearchEngine from "./SearchEngine.js";
-import Footer from "./Footer.js";
+import SearchEngine from "./SearchEngine";
+import Footer from "./Footer";
 
 export default function Form() {
   return (
