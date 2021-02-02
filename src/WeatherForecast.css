@@ -2,4 +2,11 @@
     margin: 20px;
     border-radius: 10px;
   }
-  
+.WeatherForecast canvas {
+  display: block;
+  margin: 5px auto;
+}
+
+.WeatherForecast {
+  text-align: center;
+}
